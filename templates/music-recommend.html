@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<!-- <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='music.css') }}"> -->
+	<meta charset="UTF-8">
+	<title>Personal Recommendation System</title>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+		integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+		crossorigin="anonymous"></script>
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+		integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+
+
+
+
+	<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+	<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+	<script>
+		$(document).ready(function () {
+			$('input').on('change', function () {
+				$('body').toggleClass('blue');
+			});
+		});
+	</script>
+
+	
+
+
+	<style>
+	@import url("https://fonts.googleapis.com/css?family=DM+Sans:400,500,700&display=swap");
+
+
+@import url("https://fonts.googleapis.com/css?family=DM+Sans:400,500,700&display=swap");
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  width: 100%;
+  height: 100vh;
+  background-image: url("/static/headphone_background.png"); 
+  /* background: linear-gradient(to right, #191919 0%, #0f0f0f 100%); */
+
+  /* background: linear-gradient(to right, #333333 0%, #c02942 20%, #333333 100%); */
+  /* background: linear-gradient(to bottom, #202020 0%, #00ff88 30%, #202020 100%); */
+  background-size: cover;
+  background-position: center;
+  margin: 0; /* Removes default body margin for better coverage */
+  background-repeat: no-repeat;
+  /* overflow-y: hidden; */
+
+}
+
+.left{
+    /* background-color: white;  */
+    width: 500px;
+    height: 500px;
+     margin-left: 15em; 
+     margin-top: 5em;
+}
+
+.right{
+    /* background-color: rgb(197, 82, 82); */
+     width: 250px;
+     height: 300px;
+      margin-left: 14em;
+      margin-top: 5em;
+}
+
+.player {
+    right: -6em;
+    top: -2em;
+    overflow: hidden;
+    /* box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.6); */
+    position: relative;
+    width: 500px;
+    height: 410px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    border-radius: 20px;
+    overflow-y: scroll;
+    
+}
+.player::-webkit-scrollbar{
+    display: none;
+}
+
+
+
+.player .music {
+    padding: 10px 20px 0px 20px;
+    /* background: #f2f3f6; */
+    margin-top: 3px;
+    
+}
+
+.player .music .song-1,
+.player .music .song-2,
+.player .music .song-3,
+.player .music .song-4,
+.player .music .song-5{
+    height: 80px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid rgba(255 , 255, 255, 0.2);
+}
+
+.player .music .song-1 .info,
+.player .music .song-2 .info,
+.player .music .song-3 .info,
+.player .music .song-4 .info,
+.player .music .song-5 .info{
+    display: flex;
+    align-items: center;
+}
+
+.player .music .song-1 .info .img,
+.player .music .song-2 .info .img,
+.player .music .song-3 .info .img,
+.player .music .song-4 .info .img,
+.player .music .song-5 .info .img {
+    width: 60px;
+    height: 60px;
+    margin-right: 10px;
+}
+
+.player .music .song-1 .info .img.first {
+    background: url(http://static.stereogum.com/blogs.dir/2/files/2011/12/Adele-21.jpg) center center;
+    background-size: cover;
+}
+
+.player .music .song-2 .info .img.second {
+    background: url(https://upload.wikimedia.org/wikipedia/en/d/df/RedHotChiliPeppersCalifornication.jpg) center center;
+    background-size: cover;
+}
+
+.player .music .song-3 .info .img.third {
+    background: url(http://images.rapgenius.com/59fc635f7dbe6b5cd1e07e5e605c96b5.640x640x1.jpg) center center;
+    background-size: cover;
+}
+
+.player .music .song-4 .info .img.fourth {
+    background: url(http://images.rapgenius.com/59fc635f7dbe6b5cd1e07e5e605c96b5.640x640x1.jpg) center center;
+    background-size: cover;
+}
+
+.player .music .song-5 .info .img.five {
+    background: url(http://static.stereogum.com/blogs.dir/2/files/2011/12/Adele-21.jpg) center center;
+    background-size: cover;
+}
+
+/* .player .music .song-1 .info .titles,
+.player .music .song-2 .info .titles,
+.player .music .song-3 .info .titles,
+.player .music .song-4 .info */
+
+.titles {
+    color: white;
+}
+
+.content2{
+    width: 100%;
+    position: relative;
+    top: 28%;
+}
+.left-col{
+    margin-left: 3%;
+}
+
+.left-col h1{
+    font-size: 85px;
+    font-family:'Times New Roman', Times, serif;
+    color: #fff;
+    line-height: 110px;
+    float: left;
+}
+
+.right-col{
+    float: right;
+    margin-right: 6%;
+    margin-top: 120px;
+    display: flex;
+    align-items: center;
+}
+
+.nav-link  b:hover{
+    color:black
+}
+
+	</style>
+
+	
+</head>
+
+<body id="body">
+	<div class="content">
+	<!-- <body> -->
+	<nav class="navbar  navbar-expand">
+		<div class="container-fluid">
+			<a class="navbar-brand text-light" href="#">
+				<img src="/static/logo3-removebg-preview.png" alt="Logo" width="50" height="40"
+					class="d-inline-block align-text-right">
+				<b class=""
+					style="margin-left:10px;font-size: 30px;font-family:'Times New Roman', Times, serif;">Personal
+					Recommendation System</b>
+			</a>
+			<div class="collapse navbar-collapse d-flex" id="navbarNav" style="justify-content:right;margin-right:50px">
+				<ul class="navbar-nav">
+					<li class="nav-item">
+						<a class="nav-link text-white" aria-current="page" href="/" style="font-family:'Times New Roman', Times, serif;"><b>Home</b></a>
+					  </li>
+					<li class="nav-item">
+						<a class="nav-link text-white" aria-current="page" href="/movies/recommend"
+							style="font-family:'Times New Roman', Times, serif;"><b>Movies</b></a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link text-white" href="/music/recommend"
+							style="font-family:'Times New Roman', Times, serif;"><b>Music</b></a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link text-white" href="/books/recommend"
+							style="font-family:'Times New Roman', Times, serif;"><b>Books</b></a>
+					</li>
+
+				</ul>
+			</div>
+		</div>
+    </div>
+	</nav>
+
+    <div class="content2">
+        <div class="left-col">
+            <h1>YOUR<br>&nbsp; &nbsp; &nbsp;  MUSIC<br> MATCHMAKER</h1>
+        </div>
+
+        <div class="right-col">
+           <p>Click Here To Match</p>
+           <img src="/static/play.png" alt="" id="playbtn" onclick="fnplay()">
+
+            <script>
+                document.getElementById('playbtn');
+                function fnplay(){
+                   const bdy =  document.getElementById('body');
+                   bdy.style.display=('none');
+                   bdy.style.backgroundImage = "url('/static/play.png')";
+
+                }
+            </script>
+
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- <h1 style="text-align: center;color: white; font-size: 70px; font-family:Georgia, 'Times New Roman', Times, serif;"> Songs 	&#127911;</h1>
+    <form >
+        
+      <input type="text" class="form-contol" style="border-radius: 7px; width: 370px; margin-left: 35em; margin-top: 25px;">
+      <input type="submit" value="Recommend" class="btn  btn-warning" style="margin-left: 1em;">
+    </form>
+
+    <div class="container">
+
+       <div class="row">
+
+            <div class="left col-8">
+
+
+                <div class="player">
+                    <div class="music">
+                        <div class="song-1">
+                            <div class="info">
+                                <div class="img first"></div>
+                                <div class="titles">
+                                    <h5>Hello</h5>
+                                    <p>Adele</p>
+                                </div>
+                            </div>
+                            <div class="state playing">
+                                
+                                <img src="/static/pngegg.png"  style=" width: 40px;height: 40px;">
+                            </div>
+                        </div>
+                        <div class="song-2">
+                            <div class="info">
+                                <div class="img second"></div>
+                                <div class="titles">
+                                    <h5>Californication</h5>
+                                    <p>Red Hot Chili Pepers</p>
+                                </div>
+                            </div>
+                            <div class="state">
+                                <img src="/static/pngegg.png"  style=" width: 40px;height: 40px;">
+                            </div>
+                        </div>
+                        <div class="song-3" style="font-size: '1px';">
+                            <div class="info">
+                                <div class="img third"></div>
+                                <div class="titles">
+                                    <h5>6 INCH</h5>
+                                    <p>beyoncé</p>
+                                </div>
+                            </div>
+                            <div class="state">
+                                <img src="/static/pngegg.png"  style=" width: 40px;height: 40px;">
+                            </div>
+                        </div>
+                        <div class="song-4">
+                            <div class="info">
+                                <div class="img fourth"></div>
+                                <div class="titles">
+                                    <h5>Purple rain</h5>
+                                    <p>Prince & The Revolution</p>
+                                </div>
+                            </div>
+                            <div class="state">
+                                <img src="/static/pngegg.png"  style=" width: 40px;height: 40px;">
+                            </div>
+                        </div>
+                        <div class="song-5">
+                            <div class="info">
+                                <div class="img five"></div>
+                                <div class="titles">
+                                    <h5>Purple rain</h5>
+                                    <p>Prince & The Revolution</p>
+                                </div>
+                            </div>
+                            <div class="state">
+                                <img src="/static/pngegg.png"  style=" width: 40px;height: 40px;">
+                            </div>
+                        </div>
+                        <div class="song-5">
+                            <div class="info">
+                                <div class="img five"></div>
+                                <div class="titles">
+                                    <h5>Purple rain</h5>
+                                    <p>Prince & The Revolution</p>
+                                </div>
+                            </div>
+                            <div class="state">
+                                <img src="/static/pngegg.png"  style=" width: 40px;height: 40px;">
+                            </div>
+                        </div>
+                        <div class="song-5">
+                            <div class="info">
+                                <div class="img five"></div>
+                                <div class="titles">
+                                    <h5>Purple rain</h5>
+                                    <p>Prince & The Revolution</p>
+                                </div>
+                            </div>
+                            <div class="state">
+                                <img src="/static/pngegg.png"  style=" width: 40px;height: 40px;">
+                            </div>
+                        </div>
+                        <div class="song-5">
+                            <div class="info">
+                                <div class="img five"></div>
+                                <div class="titles">
+                                    <h5>Purple rain</h5>
+                                    <p>Prince & The Revolution</p>
+                                </div>
+                            </div>
+                            <div class="state">
+                                <img src="/static/pngegg.png"  style=" width: 40px;height: 40px;">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="right col-4">
+                <div class="card-wrap" style="position: relative;bottom: 1em;">
+                <div class="card bg-light" style="height:300px; width: 290px; position: relative;top: 3em;border-radius: 10px;background-image: url(/static/image\ \(6\).jpg);opacity: 0.5;">
+                    <div class="container">
+                        <div class="text-1" >
+                           
+                            <div class="text-1-right" style="position: relative;top: 12em; color: white; left: 0.4em;">
+                                <b> Californication </b>
+                                <p style="font-size: small;">Red Hot Chili Pepers</p>
+                                <div class="progress__duration" style="position: relative;left: 13.8em;bottom: 2em">03:09</div>
+                                </div>
+                                <div class="progress__bar">
+                                    <div class="progress__current" style="position: relative;top: 10em;background-color: black; width: 260px;height: 6px; border-radius: 5px;left: 0.4em; " >
+                                        <div class="progress__time" style="position: relative;top: 5px;color: white;">00:00</div>
+                                    </div>
+                                </div>
+                            <div class="play-icon">
+                                <img src="/static/pngegg.png" alt="" style="width: 50px; height: 50px;position: relative; top: 4em; left: 13.7em;">
+
+                            </div>
+                            <div class="like-icon"> 
+                                <img src="/static/pngwing.com (1).png" style="width: 30px; height: 30px;position: relative; top: 1em; right: -0.2em;" alt="">
+                            </div>
+                            <div class="shuffle-icon"> 
+                                <img src="/static/arrow_2529475.png" style="width: 25px; height: 25px;position: relative; top: -0.9em; right: -3em;" alt="">
+                            </div>
+                            <div class="like-icon"> 
+                                <img src="/static/previous_7166834.png" style="width: 37px; height: 37px;position: relative; top: -2.7em; right: -5.9em;" alt="">
+                            </div>
+                            <div class="like-icon"> 
+                                <img src="/static/skip_7166832.png" style="width: 37px; height: 37px;position: relative; top: -5em; right: -8em;" alt="">
+                            </div>
+                            
+                        </div>
+                    </div>
+                </div>
+                <div class="card" style="position: relative;bottom: 20em;left: 2.1em; border-radius: 15px;">
+                    <img src="/static/eye.jpg" alt="" style="height: 200px;object-fit: fill;border-radius: 15px;">
+                </div>
+            </div>
+
+
+
+            </div>
+
+
+       </div>
+    </div> -->
+
+    
+</body>

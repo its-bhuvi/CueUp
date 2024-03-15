@@ -1,0 +1,670 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<!-- <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='/static/removie.css') }}"> -->
+	<meta charset="UTF-8">
+	<title>Personal Recommendation System</title>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+		integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+		crossorigin="anonymous"></script>
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+		integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+
+
+
+
+	<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+	<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+	<script>
+		$(document).ready(function () {
+			$('input').on('change', function () {
+				$('body').toggleClass('blue');
+			});
+		});
+	</script>
+
+	
+
+
+	<style>
+			@import url("https://fonts.googleapis.com/css?family=DM+Sans:400,500,700&display=swap");
+
+
+@import url("https://fonts.googleapis.com/css?family=DM+Sans:400,500,700&display=swap");
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+ 	 width: 100%;
+  height: 100%;
+  background-image: url("/static/image\ \(3\).jpg");
+  background-repeat: no-repeat;
+  background-size:cover;
+  overflow-y: scroll;
+  
+  
+}
+
+body::-webkit-scrollbar{
+	display: none;
+}
+
+/* body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 30px 10px;
+  font-family: 'DM Sans', sans-serif;
+  transition: background .4s ease-in;
+  background-color: #c394f8;
+} */
+
+/* body.blue {
+  background-color: #428aa6;
+} */
+
+input[type=radio] {
+  display: none;
+}
+
+.card {
+  position: absolute;
+  width: 35%;
+  height: 63%;
+  left: 0;
+  right: 0;
+  margin: auto;
+  transition: transform .4s ease;
+  cursor: pointer;
+  top: 2em
+}
+
+.container {
+	
+  width: 100%;
+  max-width: 800px;
+  max-height: 600px;
+  height: 100%;
+  transform-style: preserve-3d;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+
+.cards {
+  position: fixed;
+  right: -4em;
+  width: 80%;
+  height: 80%;
+  margin-bottom: 20px;
+}
+
+.container img {
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
+  object-fit: cover;
+}
+
+#item-1:checked~.cards #song-3,
+#item-2:checked~.cards #song-4,
+#item-3:checked~.cards #song-5,
+#item-4:checked~.cards #song-1,
+#item-5:checked~.cards #song-2 {
+  transform: translateX(-40%) scale(0.8);
+  opacity: 0.4;
+  z-index: 0;
+}
+
+#item-1:checked~.cards #song-2,
+#item-2:checked~.cards #song-3,
+#item-3:checked~.cards #song-4,
+#item-4:checked~.cards #song-5,
+#item-5:checked~.cards #song-1 {
+  transform: translateX(40%) scale(0.8);
+  opacity: 0.4;
+  z-index: 0;
+}
+
+#item-1:checked~.cards #song-1,
+#item-2:checked~.cards #song-2,
+#item-3:checked~.cards #song-3,
+#item-4:checked~.cards #song-4,
+#item-5:checked~.cards #song-5 {
+  transform: translateX(0) scale(1);
+  opacity: 1;
+  z-index: 1;
+}
+
+#item-2:checked~.cards #song-2 .inner-div2>img,
+#item-3:checked~.cards #song-3 .inner-div2>img,
+#item-1:checked~.cards #song-1 .inner-div2>img,
+#item-4:checked~.cards #song-4 .inner-div2>img,
+#item-5:checked~.cards #song-5 .inner-div2>img {
+  box-shadow: 0px 0px 5px 0px rgba(81, 81, 81, 0.47);
+}
+
+.player {
+  /* background-color: #fff; */
+  right: -12em;
+  border-radius: 8px;
+  min-width: 450px;
+  position: relative;
+  top:15em;
+  height:20em;
+  padding: 16px 10px;
+  transform: scale(0.80); /* Reset the size */
+  transition: transform 0.3s ease; /* Add a smooth transition effect */
+  box-shadow: -1 0 10px rgba(0, 0, 0, 0.3); /* Add a subtle shadow */
+  z-index:80;
+  opacity: 0.8;
+
+}
+
+.upper-part {
+  position: relative;
+  display: flex;
+  height: 10em;
+  align-items: center;
+  margin-bottom: 12px;
+  /* height: 60px; */
+  /* overflow: hidden; */
+}
+
+/* .play-icon {
+  margin-right: 10px;
+} */
+
+.song-info {
+  width: calc(200% - 32px);
+  
+  display: block;
+}
+
+.song-info .title {
+  color: #ffffff;
+  
+  font-size: 20px;
+  line-height: 24px;
+}
+
+.sub-line {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.subtitle,
+.time {
+  font-size: 12px;
+  line-height: 16px;
+  color: #c6c5c6;
+}
+/* 
+.time {
+  font-size: 12px;
+  line-height: 16px;
+  color: #a5a5a5;
+  font-weight: 500;
+  margin-left: auto;
+}
+
+.progress-bar {
+  height: 3px;
+  width: 100%;
+  background-color: #e9efff;
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.progress {
+  display: block;
+  position: relative;
+  width: 60%;
+  height: 100%;
+  background-color: #2992dc;
+  border-radius: 6px;
+} */
+
+.info-area {
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left:10px;
+  height: 20em;
+  transition: transform .4s ease-in;
+}
+
+.song-info {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s ease-out;
+        }
+
+        .song-info.active {
+            max-height: 230px; /* Adjust the height based on your content */
+        }
+
+/* 
+#item-2:checked~.player #test {
+  transform: translateY(-80px);
+}
+
+#item-3:checked~.player #test {
+  transform: translateY(-180px);
+}
+
+#item-4:checked~.player #test {
+  transform: translateY(-250px);
+}
+
+#item-5:checked~.player #test {
+  transform: translateY(-350px);
+} */
+
+
+.outer-div {
+  display: flex;
+  width: 100%;
+  height: 1000px;
+}
+
+.inner-div2 {
+  flex: 1;
+}
+
+section {
+      width: 100%;
+	  position: relative;
+	  top: -20em;
+	  
+      /* margin-top: 200px;   */
+	  /* margin: 20px 0; */
+      /* padding: 20px; */
+      /* background-color: #417bb5; */
+      /* box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); */
+    }
+
+    .movie-container {
+		width: 90%;
+      margin: 0 auto;
+      display: flex;
+      flex-wrap: wrap;
+      /* justify-content: space-between;  */
+	  gap: 8%
+    }
+
+    .movie {
+	  margin-top: 4em;
+      width: 17%; /* Adjust the width as needed */
+      box-sizing: border-box;
+      margin-bottom: 20px;
+      /* background-color: #fff; */
+      /* box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); */
+    }
+
+    .movie img {
+      width: 100%;
+      height: auto;
+      object-fit: cover;
+    }
+
+    .movie-details {
+      padding: 10px;
+	  color: #ffffff;
+
+    }
+
+    h2 {
+      margin-bottom: 10px;
+    }
+
+    p {
+      margin: 0;
+    }
+	
+
+	</style>
+
+	
+</head>
+
+<body>
+	<div class="content">
+	<!-- <body> -->
+	<nav class="navbar  navbar-expand">
+		<div class="container-fluid">
+			<a class="navbar-brand text-light" href="#">
+				<img src="/static/logo3-removebg-preview.png" alt="Logo" width="50" height="40"
+					class="d-inline-block align-text-right">
+				<b class=""
+					style="margin-left:10px;font-size: 30px;font-family:'Times New Roman', Times, serif;">Personal
+					Recommendation System</b>
+			</a>
+			<div class="collapse navbar-collapse d-flex" id="navbarNav" style="justify-content:right;margin-right:50px">
+				<ul class="navbar-nav">
+					<li class="nav-item">
+						<a class="nav-link text-white" aria-current="page" href="/" style="font-family:'Times New Roman', Times, serif;"><b>Home</b></a>
+					  </li>
+					<li class="nav-item">
+						<a class="nav-link text-white" aria-current="page" href="/movies/recommend"
+							style="font-family:'Times New Roman', Times, serif;"><b>Movies</b></a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link text-white" href="/music/recommend"
+							style="font-family:'Times New Roman', Times, serif;"><b>Music</b></a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link text-white" href="/books/recommend"
+							style="font-family:'Times New Roman', Times, serif;"><b>Books</b></a>
+					</li>
+
+				</ul>
+			</div>
+		</div>
+	</nav>
+
+	<div class="outer-div">
+		<div class="inner-div" style="color: white; margin-top: 5em;margin-left: 4em;">
+			<!-- --------------------------------------Content for first half---------------------------------- -->
+			<h3 style=" font-family:Georgia, 'Times New Roman', Times, serif;">Movie Recommender System</h3>
+			<div class="search-container" style="margin-top:2em ;">
+				<form >
+					<p>Select the Name of Movie</p>
+				  <input type="text" class="form-contol" style="border-radius: 7px; width: 370px; margin-left: 2em; margin-top: 22px;">
+				  <input type="submit" value="Recommend" class="btn  btn-warning" style="margin-left: 1em;">
+				</form>
+			  </div>
+			  <br>
+			  <div style="display: flex; margin: 10px; border:20px red; position: relative;top:3em;left: 1em;">\
+				<div style="flex:0.17;color:black; width: 240px; box-shadow: 1px 1px 9px 10px;height:300px;border-radius:20px;">
+					<img src="/static/wonder.jpg" style="width:200px;border-radius:20px;height:300px">
+				</div>
+				<div style="margin-left: 65px;">
+					<h3>The Dark Knight </h3>
+					<p> Rating:- 7.6</p>
+					<p> Genres:- Action, Horror</p>
+					<p>Overview:- dfd dfd f</p>
+
+				</div>
+			</div>
+			 
+		</div>
+		<div class="inner-div2" style="position: relative; right: 0; top: 2em; overflow: hidden;">
+			<!-- --------------------------------------Content for Secound half---------------------------------- -->
+			<div class="container">
+				<input type="radio" name="slider" id="item-1" checked>
+				<input type="radio" name="slider" id="item-2">
+				<input type="radio" name="slider" id="item-3">
+				<input type="radio" name="slider" id="item-4">
+				<input type="radio" name="slider" id="item-5">
+				<div class="cards">
+					<label class="card" for="item-1" id="song-1">
+						<img src="https://images.unsplash.com/photo-1530651788726-1dbf58eeef1f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=882&q=80"
+							alt="song 1">
+					</label>
+					<label class="card" for="item-2" id="song-2">
+						<img src="/static/card2.jpg"
+							alt="song 2">
+					</label>
+					<label class="card" for="item-3" id="song-3">
+						<img src="https://images.unsplash.com/photo-1533461502717-83546f485d24?ixlib=rb-1.2.1&auto=format&fit=crop&w=900&q=60"
+							alt="song 3">
+					</label>
+					<label class="card" for="item-4" id="song-4">
+						<img src="/static/eye.jpg" alt="song 4">
+					</label>
+					<label class="card" for="item-5" id="song-5">
+						<img src="/static/wonder.jpg" alt="song 5">
+					</label>
+				</div>
+				<div class="player">
+					<div class="upper-part" >
+						<!-- <div class="play-icon">
+							<svg width="20" height="20" fill="#2992dc" stroke="#2992dc" stroke-linecap="round"
+								stroke-linejoin="round" stroke-width="2" class="feather feather-play" viewBox="0 0 24 24">
+								<defs />
+								<path d="M5 3l14 9-14 9V3z" />
+							</svg>
+						</div> -->
+						<div class="info-area" id="test">
+							<label class="song-info" id="song-info-1" >
+								<div class="title" style="max-width:350px; overflow: hidden; white-space: normal; text-overflow: ellipsis;">
+									<h3><b>The Dark Knight Rises</b></h3>
+								</div>
+								<div class="sub-line d-flex" style="height:20em;">
+									<div class="subtitle " style="font-size:20px;line-height:2; color: #cbc7cb;">
+										<p style="position: relative;color:white;">Runtime:- 151min
+											<br>
+											Genres: Adventure, Fantasy, Action
+											<br>
+											Rating :- 7.35/10
+										</p>
+									</div>
+									
+								</div>
+							</label>
+							<label class="song-info" id="song-info-2">
+								<div class="title"><h3>Batman Begins</h3></div>
+								<div class="sub-line d-flex" style="flex-direction: column;">
+									<div class="subtitle" style="font-size:20px;line-height:2">
+										<p style="position: relative;color:white;">Runtime:- 151min
+											<br>
+											Genres: Adventure, Fantasy, Action
+											<br>
+											Rating :- 7.35/10
+										</p>
+									</div>
+									
+								</div>
+							</label>
+							<label class="song-info" id="song-info-3">
+								<div class="title"><h3>Batman Returns</h3></div>
+								<div class="sub-line d-flex" style="flex-direction: column;">
+									<div class="subtitle" style="font-size:20px;line-height:2">
+										<p style="position: relative;color:white;">Runtime:- 151min
+											<br>
+											Genres: Adventure, Fantasy, Action
+											<br>
+											Rating :- 7.35/10
+										</p>
+									</div>
+									
+								</div>
+							</label>
+							<label class="song-info" id="song-info-4">
+								<div class="title"><h3> The Dark Knight </h3></div>
+								<div class="sub-line d-flex" style="flex-direction: column;">
+									<div class="subtitle " style="font-size:20px;line-height:2">
+										<p style="position: relative;color:white;">Runtime:- 151min
+											<br>
+											Genres: Adventure, Fantasy, Action
+											<br>
+											Rating :- 7.35/10
+										</p>
+									</div>
+									
+								</div>
+							</label>
+							<label class="song-info" id="song-info-5">
+								<div class="title"><h3>Men in Black 3</h3></div>
+								<div class="sub-line d-flex" style="flex-direction: column;">
+									<div class="subtitle " style="font-size:20px;line-height:2">
+										<p style="position: relative;color:white;">Runtime:- 151min
+											<br>
+											Genres: Adventure, Fantasy, Action
+											<br>
+											Rating :- 7.35/10
+										</p>
+									</div>
+									
+								</div>
+								<script>
+									// JavaScript code to show corresponding song details with animation
+									document.getElementById('item-1').addEventListener('click', function () {
+										showSongInfo('song-info-1');
+									});
+							
+									document.getElementById('item-2').addEventListener('click', function () {
+										showSongInfo('song-info-2');
+									});
+									document.getElementById('item-3').addEventListener('click', function () {
+										showSongInfo('song-info-3');
+									});
+									document.getElementById('item-4').addEventListener('click', function () {
+										showSongInfo('song-info-4');
+									});
+									document.getElementById('item-5').addEventListener('click', function () {
+										showSongInfo('song-info-5');
+									});
+							
+									// Repeat similar event listeners for other items
+							
+									function showSongInfo(songInfoId) {
+										// Hide all song-info elements
+										var songInfoElements = document.querySelectorAll('.song-info');
+										songInfoElements.forEach(function (element) {
+											element.classList.remove('active');
+										});
+							
+										// Show the selected song-info element with animation
+										var selectedSongInfo = document.getElementById(songInfoId);
+										if (selectedSongInfo) {
+											selectedSongInfo.classList.add('active');
+										}
+									}
+							
+									// Show default song-info on page load
+									document.addEventListener('DOMContentLoaded', function () {
+										showSongInfo('song-info-1');
+									});
+								</script>
+
+
+
+							</label>
+						</div>
+					</div>
+				
+				</div>
+			</div>
+		</div>
+		
+	</div>
+
+
+</div>
+
+<section>
+	<h1 style="font-family:'Times New Roman', Times, serif;color: #ffffff; margin-left: 1.5em;">  Top 50 Highest Rated Movies</h1>
+	<div class="movie-container">
+	  <!-- Movie 1 -->
+	  <div class="movie">
+		<img src="/static/card1.jpg" alt="Movie 1 Poster">
+		<div class="movie-details">
+		  <h3 style="font-size: calc(1rem + 0.6vw);">Movie 1 Name</h3>
+		  <p>Director: Director 1</p>
+		  <p>Vote: 1000</p>
+		  <p>Rating: 9.5</p>
+		</div>
+	  </div>
+
+	  <!-- Repeat similar blocks for Movie 2, Movie 3, and Movie 4 -->
+
+	  <!-- Movie 2 -->
+	  <div class="movie">
+		<img src="/static/card1.jpg" alt="Movie 2 Poster">
+		<div class="movie-details">
+		  <h3 style="font-size: calc(1rem + 0.6vw);" >Movie 2 Name</h3>
+		  <p>Director: Director 2</p>
+		  <p>Vote: 1200</p>
+		  <p>Rating: 8.8</p>
+		</div>
+	  </div>
+
+	  <!-- Repeat similar blocks for Movie 3 and Movie 4 -->
+
+	  <!-- Movie 3 -->
+	  <div class="movie">
+		<img src="/static/card1.jpg" alt="Movie 3 Poster">
+		<div class="movie-details">
+		  <h3 style="font-size: calc(1rem + 0.6vw);">Movie 3 Name</h3>
+		  <p>Director: Director 3</p>
+		  <p>Vote: 800</p>
+		  <p>Rating: 9.0</p>
+		</div>
+	  </div>
+
+	  <!-- Movie 4 -->
+	  <div class="movie">
+		<img src="/static/card1.jpg" alt="Movie 4 Poster">
+		<div class="movie-details">
+		  <h3 style="font-size: calc(1rem + 0.6vw);">Movie 4 Name</h3>
+		  <p>Director: Director 4</p>
+		  <p>Vote: 1500</p>
+		  <p>Rating: 8.5</p>
+		</div>
+	  </div>
+	  <div class="movie">
+		<img src="/static/card1.jpg" alt="Movie 1 Poster">
+		<div class="movie-details">
+		  <h3 style="font-size: calc(1rem + 0.6vw);">Movie 1 Name</h3>
+		  <p>Director: Director 1</p>
+		  <p>Vote: 1000</p>
+		  <p>Rating: 9.5</p>
+		</div>
+	  </div>
+
+	  <!-- Repeat similar blocks for Movie 2, Movie 3, and Movie 4 -->
+
+	  <!-- Movie 2 -->
+	  <div class="movie">
+		<img src="/static/card1.jpg" alt="Movie 2 Poster">
+		<div class="movie-details">
+		  <h3 style="font-size: calc(1rem + 0.6vw);" >Movie 2 Name</h3>
+		  <p>Director: Director 2</p>
+		  <p>Vote: 1200</p>
+		  <p>Rating: 8.8</p>
+		</div>
+	  </div>
+
+	  <!-- Repeat similar blocks for Movie 3 and Movie 4 -->
+
+	  <!-- Movie 3 -->
+	  <div class="movie">
+		<img src="/static/card1.jpg" alt="Movie 3 Poster">
+		<div class="movie-details">
+		  <h3 style="font-size: calc(1rem + 0.6vw);">Movie 3 Name</h3>
+		  <p>Director: Director 3</p>
+		  <p>Vote: 800</p>
+		  <p>Rating: 9.0</p>
+		</div>
+	  </div>
+
+	  <!-- Movie 4 -->
+	  <div class="movie">
+		<img src="/static/card1.jpg" alt="Movie 4 Poster">
+		<div class="movie-details">
+		  <h3 style="font-size: calc(1rem + 0.6vw);">Movie 4 Name</h3>
+		  <p>Director: Director 4</p>
+		  <p>Vote: 1500</p>
+		  <p>Rating: 8.5</p>
+		</div>
+	  </div>
+
+	  <!-- Repeat this block structure for the remaining movies -->
+	</div>
+  </section>
+
+
+		
+
+
+</body>
+
+</html>

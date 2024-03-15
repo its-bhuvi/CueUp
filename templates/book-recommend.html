@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<!-- <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='/static/removie.css') }}"> -->
+	<meta charset="UTF-8">
+	<title>Personal Recommendation System</title>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+		integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+		crossorigin="anonymous"></script>
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+		integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+
+
+
+
+	<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+	<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+
+<style>
+    
+body{
+	background: linear-gradient(to top, #262625 0%, #aeaeae 20%, #BFBFBF 40%, #8C8C8C 60%, #737373 70%);
+
+;
+}
+
+.container{
+width: 50%;
+height: 50%;
+float: right;
+
+}
+</style>
+
+
+</head>
+<body>
+   
+	<div class="content">
+	<!-- <body> -->
+	<nav class="navbar  navbar-expand">
+		<div class="container-fluid">
+			<a class="navbar-brand text-light" href="#">
+				<img src="/static/logo3-removebg-preview.png" alt="Logo" width="50" height="40"
+					class="d-inline-block align-text-right">
+				<b class=""
+					style="margin-left:10px;font-size: 30px;font-family:'Times New Roman', Times, serif;">Personal
+					Recommendation System</b>
+			</a>
+			<div class="collapse navbar-collapse d-flex" id="navbarNav" style="justify-content:right;margin-right:50px">
+				<ul class="navbar-nav">
+					<li class="nav-item">
+						<a class="nav-link text-white" aria-current="page" href="/" style="font-family:'Times New Roman', Times, serif;"><b>Home</b></a>
+					  </li>
+					<li class="nav-item">
+						<a class="nav-link text-white" aria-current="page" href="/movies/recommend"
+							style="font-family:'Times New Roman', Times, serif;"><b>Movies</b></a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link text-white" href="/music/recommend"
+							style="font-family:'Times New Roman', Times, serif;"><b>Music</b></a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link text-white" href="/books/recommend"
+							style="font-family:'Times New Roman', Times, serif;"><b>Books</b></a>
+					</li>
+
+				</ul>
+			</div>
+		</div>
+	</nav>
+	<div class="outer-div">
+		<div class="inner-div" style="color: white; margin-top: 5em;margin-left: 4em;">
+			<!-- --------------------------------------Content for first half---------------------------------- -->
+			<h3 style=" font-family:Georgia, 'Times New Roman', Times, serif;">Movie Recommender System</h3>
+			<div class="search-container" style="margin-top:2em ;">
+				<form >
+					<p>Select the Name of Movie</p>
+				  <input type="text" class="form-contol" style="border-radius: 7px; width: 370px; margin-left: 2em; margin-top: 22px;">
+				  <input type="submit" value="Recommend" class="btn  btn-warning" style="margin-left: 1em;">
+				</form>
+			  </div>
+			  <br>
+			  <div style="display: flex; margin: 10px; border:20px red; position: relative;top:3em;left: 1em;">\
+				<div style="flex:0.17;color:black; width: 240px; box-shadow: 1px 1px 9px 10px;height:300px;border-radius:20px;">
+					<img src="/static/wonder.jpg" style="width:200px;border-radius:20px;height:300px">
+				</div>
+				<div style="margin-left: 65px;">
+					<h3>The Dark Knight </h3>
+					<p> Rating:- 7.6</p>
+					<p> Genres:- Action, Horror</p>
+					<p>Overview:- dfd dfd f</p>
+
+				</div>
+				<div class="swiper books-list">
+					<div class="swiper-wrapper">
+						<a href="" class="swiper"><img src="/static/table.png" alt="" style="position: relative; bottom: 7em; width:650px;height: 350px; left: 16em;"></a>
+						
+		
+					</div>
+				<img class="stand" src="/static/47026-removebg-preview.png" alt="" style="width: 600px;height:380px ; position: relative;left: 18em;bottom: 37em;">
+	
+			</div>
+			 
+		</div>
+		<div class="inner-div2" style="position: relative; right: 0; top: 2em; overflow: hidden;">
+			<!-- --------------------------------------Content for Secound half----------------------------------
+			<div class="swiper books-list">
+				<div class="swiper-wrapper">
+					<a href="" class="swiper-slide"><img src="/static/card2.jpg" alt=""></a>
+					
+	
+				</div> -->
+				
+	
+			</div>
+		</div>
+		</div>
+		
+	</div>
+
+
+
+
+
+
+
+</body>

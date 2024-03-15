@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <link rel= "stylesheet" type= "text/css" href= "/static/index.css">
+    <meta charset="UTF-8">
+    <title>Personal Recommendation System</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+<style>
+
+@import url("https://fonts.googleapis.com/css?family=Roboto:400,400i,700");
+
+* {
+  font-family: Roboto, sans-serif;
+  padding: 0;
+  margin: 0;
+}
+
+html, body {
+  width: 100%;
+  height: 100%;
+}
+
+body::-webkit-scrollbar{
+	display: none;
+}
+.flexbox {
+  /* background: linear-gradient(155deg, #55c7ed, #2bb3e0, #3bc1ed); */
+  width: 50%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  right: -55px;
+    top: 5px;
+    
+}
+
+
+.search > div {
+  display: inline-block;
+  position: relative;
+  filter: drop-shadow(0 1px #0091c2);
+  /* left: 1em; */
+  
+}
+
+
+
+.search > div:after {
+  content: "";
+  background: white;
+  width: 3px;
+  height: 11px;
+  position: absolute;
+  top: 16px;
+  right: -3px;
+  transform: rotate(135deg);
+}
+
+.search > div > input {
+  color: white;
+  font-size: 16px;
+  background: transparent;
+  width: 10px;
+  height: 10px;
+  padding: 7px;
+  border: solid 2px white;
+  outline: none;
+  border-radius: 35px;
+  transition: width 0.5s;
+}
+
+.search > div > input::placeholder {
+  color: #efefef;
+  opacity: 0;
+  transition: opacity 150ms ease-out;
+}
+
+.search > div > input:focus::placeholder {
+  opacity: 1;
+}
+
+.search > div > input:focus,
+.search > div > input:not(:placeholder-shown) {
+  width: 250px;
+}
+  
+</style>
+    
+
+</head>
+
+
+<body style="background-color: rgb(14,22,48); " >
+ 
+   <nav class="navbar  navbar-expand">
+  <div class="container-fluid">
+    <a class="navbar-brand text-light" href="#">
+      <img src="/static/logo3-removebg-preview.png" alt="Logo" width="50" height="40" class="d-inline-block align-text-right">
+      <b class="" style="margin-left:10px;font-size: 30px;font-family:'Times New Roman', Times, serif;">Personal
+        Recommendation Systemd</b>
+    </a>
+      <div class="collapse navbar-collapse d-flex" id="navbarNav" style="justify-content:right;margin-right:100px">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link text-white" aria-current="page" href="/" style="font-family:'Times New Roman', Times, serif;"><b>Home</b></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-white" aria-current="page" href="/movies/recommend" style="font-family:'Times New Roman', Times, serif;"><b>Movies</b></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-white" href="/music/recommend"style="font-family:'Times New Roman', Times, serif;"><b>Music</b></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-white" href="/books/recommend"style="font-family:'Times New Roman', Times, serif;"><b>Books</b></a>
+          </li>
+
+          <div class="flexbox">
+						<div class="search" >
+						  <div>
+							<input type="text" style="height: 20px; " placeholder="Search . . ." required>
+						  </div>
+						</div>
+					  </div>
+
+
+
+
+  
+        </ul>
+    </div>
+  </div>
+
+</nav>
+
+
+<div class="container">
+<div class="row" style="position: relative;top:9em">
+
+
+  <div class="leftbox d-flex  text-white col-lg-5" style="justify-content:left;position: relative; top: -3em;"  >
+<div class="textsp">
+    <h3>Welcome to RecommendMe! &#x1F60D;</h3><br>
+<p style="width:500px;overflow: hidden;">Embark on a journey into your own personalized universe of recommendations, exclusively tailored for you. At RecommendMe, we weave together a tapestry of entertainment experiences, uniquely crafted to match your distinct tastes. Whether you're a cinephile, a melody connoisseur, or a book lover, your adventure with RecommendMe starts right here.&#128512;</p>
+<p style="width:500px;overflow: hidden;">Our recommendation system leverages advanced algorithms to understand your preferences. It analyzes your interactions, learns from your choices, and delivers tailored suggestions in real-time.Immerse yourself in a seamless blend of personalized entertainment experiences, spanning movies, music, and books, carefully curated just for you.</p>
+<!-- Explore Now Buttons -->
+<div class="button-down"style="margin-top: 25px;">
+  <a  href="movies.html" style="display: inline-block; background-color: #333; color: #fff; padding: 10px 15px; text-decoration: none; font-size: 1.2em; margin-right: 10px; border-radius: 5px;">Explore Movies</a>
+  <a href="music.html" style="display: inline-block; background-color: #333; color: #fff; padding: 10px 15px; text-decoration: none; font-size: 1.2em; margin-right: 10px; border-radius: 5px;">Explore Music</a>
+  <a href="books.html" style="display: inline-block; background-color: #333; color: #fff; padding: 10px 15px; text-decoration: none; font-size: 1.2em; margin-right: 10px; border-radius: 5px;">Explore Books</a>
+  
+</div>
+</div>
+  </div>
+
+
+  <div class="rightbox col-lg-6 text-white d-flex " style="justify-content: space-around;position: relative;left:8em">
+    <div class="row">
+
+
+
+
+      <div class="upsec col-lg-5">
+      <div class="card-deck gradient" style="width: 16rem;position: relative;top:-2em;z-index:50;">
+        <img src="/static/card1.jpg" height="350px" class="card-img-top" alt="..." style="object-fit:fill;border-radius:30px;">
+        <div class="card-body">
+          <h6 class="card-title">Movies</h6>
+        </div>
+      </div>
+    </div>
+    <!-- <div class="sp col-lg-1">
+
+    </div> -->
+    <!-- upsection 2nd image -->
+    <div class="upsec2 col-lg-2" style="position: relative;top:4.5em;right:3em;" >
+    <div class="card-deck gradient cd1" style="width:13rem;">
+      <img src="/static/card2.jpg" height="270px" class="card-img-top " alt="..." style="object-fit:fill;border-radius:30px;">
+      <div class="card-body">
+        <h6 class="card-title">Music</h6>
+        
+      </div>
+    </div>
+  </div>
+  <div class="sp col-lg-2">
+
+  </div>
+  <div class="upsec2 col-lg-2" style="position: relative;top:9.5em" >
+    <div class="card-deck gradient" style="width:11rem;">
+      <img src="/static/card3.jpg" height="230px" class="card-img-top" alt="..." style="object-fit:fill;border-radius:30px;">
+      <div class="card-body">
+        <h6 class="card-title">Books</h6>
+        
+      </div>
+    </div>
+  </div>
+  
+
+
+</div>
+  </div>
+
+</div>
+</div>
+
+<!--  ---------------------------------------------2nd Section -------------------------------------- -->
+
+<section id="why-choose" style="background-color: #f2f2f2; padding: 40px 0;position: relative; top: 12em;">
+  <div class="container">
+      <!-- <h2 style="text-align: center;">Why Choose RecommendMe?</h2>
+      <h6 style="text-align: center;"> your gateway to a personalized world of recommendations tailored exclusively for you. Here's why you should choose us:&#128071;</h6> -->
+<!-- Engaging Why Choose RecommendMe Section -->
+<div style="margin-top: 40px; text-align: center;">
+
+  <h3 style="font-size: 2em; color: #333; margin-bottom: 20px;">Why Choose RecommendMe?</h3>
+  <h6 style="text-align: center;"> your gateway to a personalized world of recommendations tailored exclusively for you. Here's why you should choose us:&#128071;</h6>
+
+  <div style="display: flex; justify-content: space-around; flex-wrap: wrap;">
+
+      <!-- Cutting-Edge Recommendations Card -->
+      <div style="width: 270px; background-color: #ffcccb; padding: 20px; margin: 20px; border-radius: 10px; text-align: left;">
+          <h4 style="color: #e74c3c;">Cutting-Edge Recommendations</h4>
+          <p>Step into a world of personalized suggestions with our advanced technology. Our smart system learns what you love and recommends things you'll enjoy, in real-time!</p>
+      </div>
+
+      <!-- Easy Exploration Card -->
+      <div style="width: 270px; background-color: #a9dfbf; padding: 20px; margin: 20px; border-radius: 10px; text-align: left;">
+          <h4 style="color: #27ae60;">Easy Exploration</h4>
+          <p>Forget the hassle of searching endlessly. We've made exploring content fun and easy, giving you a tailor-made experience that suits your tastes.</p>
+      </div>
+
+      <!-- Just for You Card -->
+      <div style="width: 270px; background-color: #f9e79f; padding: 20px; margin: 20px; border-radius: 10px; text-align: left;">
+          <h4 style="color: #f39c12;">Just for You</h4>
+          <p>Whether you're crazy about movies, music, or books, RecommendMe is like your personal assistant, always picking the perfect recommendations based on what you like.</p>
+      </div>
+
+      <!-- Up Your Fun Quotient Card -->
+      <div style="width: 270px; background-color: #bbdefb; padding: 20px; margin: 20px; border-radius: 10px; text-align: left;">
+          <h4 style="color: #2196f3;">Up Your Fun Quotient</h4>
+          <p>Dive into a mix of movies, music, and books specially chosen for you. We're here to boost your entertainment, introducing you to fantastic finds that match your style!</p>
+      </div>
+  </div>
+</div>
+
+    </div>
+
+</section>
+
+<!-- ----------------------------------------------3rd Section-------------------------------------------------- -->
+
+<!-- How It Works Section -->
+<section id="how-it-works" style="background-color:rgb(14,22,48); padding: 40px 0; text-align: center; position: relative; top: 13em;">
+
+  <div class="container">
+      <h2 style="font-size: 2em; color: #fcfbfb; margin-bottom: 20px;">How It Works</h2>
+
+      <!-- How It Works Content -->
+      <p style="color: #eceaea; font-size: 1.2em; max-width: 800px; margin: 0 auto;">
+          Curious about how we bring you the best recommendations? Our cutting-edge system is designed with you in mind. Here's a glimpse into the magic behind the scenes:
+      </p>
+
+      <div style="display: flex; justify-content: space-around; flex-wrap: wrap; margin-top: 40px;">
+
+          <!-- User Interactions Card -->
+          <div style="width: 300px; background-color: #fff; padding: 20px; margin: 20px; border-radius: 10px; text-align: left; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
+              <h4 style="color: #3498db;">Your Interactions</h4>
+              <p>Simply interact with the content you love – movies, music, or books. The more you engage, the better we understand your preferences.</p>
+          </div>
+
+          <!-- Smart Analysis Card -->
+          <div style="width: 300px; background-color: #fff; padding: 20px; margin: 20px; border-radius: 10px; text-align: left; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
+              <h4 style="color: #e67e22;">Smart Analysis</h4>
+              <p>Our intelligent algorithms analyze your interactions, taking note of what resonates with you. It's like having your own digital assistant.</p>
+          </div>
+
+          <!-- Real-Time Suggestions Card -->
+          <div style="width: 300px; background-color: #fff; padding: 20px; margin: 20px; border-radius: 10px; text-align: left; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
+              <h4 style="color: #27ae60;">Real-Time Suggestions</h4>
+              <p>Experience the magic of real-time suggestions. As you explore, we deliver personalized recommendations instantly, ensuring a delightful journey.</p>
+          </div>
+      </div>
+
+      <!-- Additional Explanation -->
+      <p style="color: #eaeaea; font-size: 1.2em; max-width: 800px; margin: 40px auto 0;">
+          That's the essence of RecommendMe – your content companion. Tailored suggestions, seamless exploration, all at your fingertips.
+      </p>
+  </div>
+</section>
+
+<!-- -----------------------------------------------------4th Section--------------------------------------------------- -->
+
+<section id="benefits" style="background-color: #f9f0ea; padding: 40px 0; text-align: center; position: relative;top:13em;">
+
+  <div class="container">
+      <h2 style="font-size: 2.5em; color: #333; margin-bottom: 20px;">Embrace the Perks of RecommendMe</h2>
+
+      <!-- Benefits Content with Feature Boxes -->
+      <div style="display: flex;justify-content: space-around; flex-wrap: wrap; margin-top: 40px;">
+
+          <!-- Save Time Feature Box -->
+          <div style="width: 300px; margin: 20px; text-align: center; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
+              <img src="/static/save-time.png" alt="Save Time Icon" style="width: 80px; height: 80px; margin-bottom: 20px;">
+              <h3 style="color: #e74c3c; font-size: 1.5em; margin-bottom: 10px;">Save Time</h3>
+              <p>Let time be on your side! RecommendMe streamlines your content discovery, delivering personalized suggestions directly to you, so you can spend less time searching and more time enjoying.</p>
+          </div>
+
+          <!-- Discover Favorites Feature Box -->
+          <div style="width: 300px; margin: 20px; text-align: center; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
+              <img src="/static/data-discovery.png" alt="Discover Favorites Icon" style="width: 80px; height: 80px; margin-bottom: 20px;">
+              <h3 style="color: #27ae60; font-size: 1.5em; margin-bottom: 10px;">Discover Favorites</h3>
+              <p>Embark on a journey of discovery! Unearth hidden gems in movies, music, and books with RecommendMe's carefully crafted recommendations tailored to your unique tastes. Your next favorite is just a click away!</p>
+          </div>
+
+          <!-- Enhance Experience Feature Box -->
+          <div style="width: 300px; margin: 20px; text-align: center; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
+              <img src="/static/customer-experience_12963677.png" alt="Enhance Experience Icon" style="width: 80px; height: 80px; margin-bottom: 20px;">
+              <h3 style="color: #3498db; font-size: 1.5em; margin-bottom: 10px;">Enhance Experience</h3>
+              <p>Upgrade your entertainment experience! Immerse yourself in a world of seamless interactions and an intuitive interface. With RecommendMe, your preferences take center stage, making your journey delightful and tailored just for you.</p>
+          </div>
+      </div>
+
+      <!-- Additional Explanation -->
+      <p style="color: #555; font-size: 1.5em; max-width: 800px; margin: 40px auto 0;">
+          Welcome to RecommendMe, where every click brings you closer to the content you love. Embrace the perks of personalized recommendations - save time, discover favorites, and enhance your overall experience.
+      </p>
+  </div>
+</section>
+
+<!-- --------------------------------------------------------------------5th Section-------------------------------------------------------- -->
+
+<!-- Contact Section -->
+
+<section id="contact" style="background-color: rgb(14,22,48); color: #f3f0f0; padding: 40px 0; text-align: center;position: relative;top:13em">
+
+  <div class="container">
+      <h2 style="font-size: 2em; margin-bottom: 20px;">Get in Touch with Us</h2>
+
+      <p style="font-size: 1.2em; margin-bottom: 30px;">Have questions, suggestions, or just want to say hi? Reach out to us! We're here for you.</p>
+
+      <!-- Contact Card -->
+      <div style="max-width: 350px; max-height:500px ; margin: 0 auto; background-color: #243235; padding: 20px; border-radius: 10px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);">
+          <!-- Contact Form (Example; replace with your actual contact form) -->
+          <form action="#" method="post" style="text-align: left;">
+              <label for="name" style="display: block; font-size: 1em; margin-bottom: 10px;">Your Name:</label>
+              <input type="text" id="name" name="name" style="width: 100%;background-color: #dcdedf; height:35px; padding: 10px; margin-bottom: 15px; border: 1px solid #eae7e7; border-radius: 5px;">
+
+              <label for="email" style="display: block; font-size: 1em; margin-bottom: 10px;">Your Email:</label>
+              <input type="email" id="email" name="email" style="width: 100%;height:35px;background-color: #dcdedf; padding: 10px; margin-bottom: 15px; border: 1px solid #ccc; border-radius: 5px;">
+
+              <label for="message" style="display: block; font-size: 1em; margin-bottom: 10px;">Your Message:</label>
+              <textarea id="message" name="message" rows="4" style="width: 100%; height:70px;background-color: #dcdedf;padding: 10px; margin-bottom: 20px; border: 1px solid #ccc; border-radius: 5px;"></textarea>
+              <div class="text-center">
+              <button type="submit" style="background-color: #9e9cbe; color: #333; text-align: center;justify-content: center;padding: 10px 20px; font-size: 1em; border: none; border-radius: 5px; cursor: pointer;">Send Message</button>
+            </div>
+          </form>
+      </div>
+  </div>
+</section>
+
+
+
+<footer style="background-color: #333; color: #fff; padding: 20px 0; text-align: center; position: relative; top: 13em">
+  <div class="container">
+      <!-- Footer content, links, or additional information -->
+      &copy;Copyright 2024 - Developed by Bhuvneshwar Tanwar. All rights reserved.
+  </div>
+</footer>
+
+
+
+</body>
+
+</html>

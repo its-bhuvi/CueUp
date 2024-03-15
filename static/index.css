@@ -1,0 +1,80 @@
+.bgimg{
+    background-color: rgb(14,22,48);
+    /* background-image: linear-gradient(rgba(255,255,255,0.5), rgba(255,255,255,0.5)), url("/static/backgorund_image.jpg"); */
+    /* height:1024px; */
+}
+
+
+.upsec2{
+    z-index:40;
+}
+.upsec2:hover{
+    z-index:60;
+ 
+}
+
+.cd1:hover{
+    /* border: 15px solid red; */
+    /* display: none; */
+    box-shadow:100px 100px 100px 10px black;
+}
+.card-deck {
+    /* max-width:19rem; */
+    /* padding: 2px; */
+    position: relative;
+    z-index:1;
+    background-color: #4158D0;
+    background-image: linear-gradient(43deg, #4158D0 0%, #C850C0 46%, #FFCC70 100%); 
+    margin-right:25px;
+    filter : brightness(100%);
+  }
+  
+  .card-deck:before {
+    z-index:-1;
+    position: absolute;
+    content:"";
+    width:10rem;
+    height:250px; 
+    left:10px; 
+    top:0;
+    background-image: linear-gradient(43deg, #4158D0 0%, #C850C0 46%, #FFCC70 100%); 
+    filter: blur(20px);
+    
+    
+  }
+  
+  .gradient {
+    background-color: #0b090a;
+    padding: 3px;
+    color: white; 
+    font-size: 35px;
+    font-family: arial;
+    text-align: center;
+    border-radius:35px;
+  }
+  .gradient:hover {
+    transform: scale(1.19); /* Increase size on hover */
+    
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.5); /* Add a slightly stronger shadow on hover */
+}
+
+
+.button-down > a{
+        color: rgba(var(--text-color));
+        border: 2px double transparent;
+            background-image: linear-gradient(rgb(13, 14, 33), rgb(13, 14, 33)), radial-gradient(circle at left top, rgb(1, 110, 218), rgb(217, 0, 192));
+        background-origin: border-box;
+        background-clip: padding-box, border-box;
+      }
+
+      
+
+
+
+
+
+
+
+
+
+
