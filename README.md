@@ -1,4 +1,4 @@
-CueUp - Your Personalized Entertainment Guide
+#CueUp - Your Personalized Entertainment Guide
 Welcome to CueUp -go-to destination for personalized recommendations! Whether you're looking for the next blockbuster movie, trending music tracks, or captivating books, CueUp has got you covered.
 
 ##Features
