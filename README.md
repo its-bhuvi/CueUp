@@ -37,9 +37,3 @@ Technology Stack: HTML, CSS, JavaScript, Flask,Machine Learning,Python
 
 Developed By: Bhuvneshwar Tanwar
 
-Installation
-To run CueUp locally, follow these steps:
-
-Clone the repository: git clone https://github.com/your-username/cueup.git
-Navigate to the project directory: cd cueup
-Open index.html in your preferred web browser.
